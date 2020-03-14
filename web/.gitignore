@@ -1,12 +1,9 @@
-# remove project config
-
-
 # Miscellaneous
 *.class
 *.log
 *.pyc
 *.swp
-.DS_Stor
+.DS_Store
 .atom/
 .buildlog/
 .history
