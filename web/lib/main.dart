@@ -1,4 +1,7 @@
+import 'package:carbonbins/model/model.dart';
 import 'package:carbonbins/pages/navigation.gr.dart';
+import 'package:carbonbins/pages/payment_page/payment_page.dart';
+import 'package:carbonbins/pages/project_page/project_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,10 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: MyRoute.landingPage,
-      navigatorKey: MyRoute.navigator.key,
-      onGenerateRoute: MyRoute.onGenerateRoute,
-      //home: ProjectPage("Shudipto"),
+//      initialRoute: MyRoute.landingPage,
+//      navigatorKey: MyRoute.navigator.key,
+//      onGenerateRoute: MyRoute.onGenerateRoute,
+      home: ProjectPage("Shudipto"),
       debugShowCheckedModeBanner: false,
     );
   }

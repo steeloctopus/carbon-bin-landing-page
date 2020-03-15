@@ -4,5 +4,5 @@ class UserModel {
   String email;
   String amount;
 
-  UserModel(this.firstName, this.lastName, this.email, this.amount);
+  UserModel({this.firstName, this.lastName, this.email, this.amount});
 }

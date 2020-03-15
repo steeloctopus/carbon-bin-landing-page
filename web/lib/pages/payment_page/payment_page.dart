@@ -1,10 +1,9 @@
+import 'dart:html';
+
 import 'package:carbonbins/model/model.dart';
 import 'package:carbonbins/pages/navigation.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:square_in_app_payments/models.dart';
-
-import 'dart:js' as js;
-import 'dart:js_util' as util;
+import 'dart:ui' as ui;
 
 class PaymentPage extends StatefulWidget {
   final UserModel userModel;
@@ -16,25 +15,48 @@ class PaymentPage extends StatefulWidget {
 }
 
 class _PaymentPageState extends State<PaymentPage> {
-  void cancel() {
-    print("Sorry");
+  void getButton() {
+    var htmlL = """<div id="checkout-message"></div>
+        <div id="dropin-container"></div>
+    <button id="submit-button">Submit payment</button>""";
+
+    ui.platformViewRegistry.registerViewFactory(
+        'dropin-container',
+        (int viewId) => DivElement()
+          ..appendHtml(htmlL)
+          ..style.border = 'none');
+
+    print(HtmlElementView(
+      viewType: "dropin-container",
+    ));
   }
 
-  void success(CardDetails results) {
-    print(results.toString());
-    print("***************");
-    goToNextPage();
+  @override
+  void initState() {
+    getButton();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: MaterialButton(
-        onPressed: () {
-          goToNextPage();
-          //pay();
-        },
-        child: Text("Click me"),
+      child: Column(
+        children: <Widget>[
+          Container(
+            width: 300.0,
+            height: 300.0,
+            child: HtmlElementView(
+              viewType: "dropin-container",
+            ),
+          ),
+          MaterialButton(
+            onPressed: () {
+              goToNextPage();
+              //pay();
+            },
+            child: Text("Click me"),
+          ),
+        ],
       ),
     );
   }

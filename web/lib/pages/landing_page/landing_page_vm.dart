@@ -40,7 +40,8 @@ class LandingPageViewModel {
     }
 
     //post valid data
-    var model = UserModel(firstName, lastName, email, amount);
+    var model = UserModel(
+        firstName: firstName, lastName: lastName, email: email, amount: amount);
     validData.add(model);
   }
 }
