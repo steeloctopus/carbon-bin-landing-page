@@ -25,11 +25,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
   auto_route: ^0.3.1
-  square_in_app_payments: ^1.3.0
   # useless
   youtube_player_flutter: ^6.1.0+4
   flutter_braintree: ^0.5.3+1
   http: ^0.12.0+4
+  flutube: ^0.8.3
 
 dev_dependencies:
   flutter_test:

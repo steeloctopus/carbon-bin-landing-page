@@ -53,7 +53,7 @@ class _PaymentPageState extends State<PaymentPage> {
         billingAddressRequired: false,
       ),
       paypalRequest: BraintreePayPalRequest(
-        amount: '4.20',
+        amount: '10',
         displayName: 'Example company',
       ),
     );
@@ -89,13 +89,14 @@ class _PaymentPageState extends State<PaymentPage> {
       child: Scaffold(
         body: Container(
           width: MediaQuery.of(context).size.width,
-          color: Colors.cyan,
+          color: Colors.white,
           child: Container(
             padding: EdgeInsets.only(left: 20.0, right: 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: ListView(
               children: <Widget>[
+                SizedBox(
+                  height: 50.0,
+                ),
                 Container(
                   padding: EdgeInsets.only(left: 20.0, right: 20.0),
                   decoration: BoxDecoration(
@@ -104,10 +105,24 @@ class _PaymentPageState extends State<PaymentPage> {
                       ),
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(5))),
-                  child: TextField(
+                  child: TextFormField(
                     controller: firstNameController,
                     decoration: InputDecoration(
-                        border: InputBorder.none, hintText: 'Fisrt Name'),
+                      labelText: "First name",
+                      fillColor: Colors.white,
+                      border: new OutlineInputBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                        borderSide: new BorderSide(),
+                      ),
+                    ),
+                    validator: (val) {
+                      if (val.length == 0) {
+                        return "First name cannot be empty";
+                      } else {
+                        return null;
+                      }
+                    },
+                    keyboardType: TextInputType.emailAddress,
                     expands: false,
                     autofocus: false,
                   ),
@@ -116,38 +131,30 @@ class _PaymentPageState extends State<PaymentPage> {
                   height: 20,
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 8.0),
+                  padding: EdgeInsets.only(left: 20.0, right: 20.0),
                   decoration: BoxDecoration(
                       border: Border.all(
                         color: Colors.white,
                       ),
-                      color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(5))),
-                  child: TextField(
+                  child: TextFormField(
                     controller: lastNameController,
                     decoration: InputDecoration(
-                        border: InputBorder.none, hintText: 'Last Name'),
-                    expands: false,
-                    autofocus: false,
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 8.0),
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.white,
+                      labelText: "Last name",
+                      fillColor: Colors.white,
+                      border: new OutlineInputBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                        borderSide: new BorderSide(),
                       ),
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(5))),
-                  child: TextField(
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Email Address',
                     ),
+                    validator: (val) {
+                      if (val.length == 0) {
+                        return "Last name cannot be empty";
+                      } else {
+                        return null;
+                      }
+                    },
+                    keyboardType: TextInputType.emailAddress,
                     expands: false,
                     autofocus: false,
                   ),
@@ -163,11 +170,57 @@ class _PaymentPageState extends State<PaymentPage> {
                       ),
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(5))),
-                  child: TextField(
+                  child: TextFormField(
+                    controller: emailController,
                     decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Enter Amount',
+                      labelText: "Enter Email",
+                      fillColor: Colors.white,
+                      border: new OutlineInputBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                        borderSide: new BorderSide(),
+                      ),
                     ),
+                    validator: (val) {
+                      if (val.length == 0) {
+                        return "Email cannot be empty";
+                      } else {
+                        return null;
+                      }
+                    },
+                    keyboardType: TextInputType.emailAddress,
+                    expands: false,
+                    autofocus: false,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.white,
+                      ),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(5))),
+                  child: TextFormField(
+                    controller: amountController,
+                    decoration: InputDecoration(
+                      labelText: "Ammount",
+                      fillColor: Colors.white,
+                      border: new OutlineInputBorder(
+                        borderRadius: new BorderRadius.circular(25.0),
+                        borderSide: new BorderSide(),
+                      ),
+                    ),
+                    validator: (val) {
+                      if (val.length == 0) {
+                        return "Plese select at least \$1";
+                      } else {
+                        return null;
+                      }
+                    },
+                    keyboardType: TextInputType.emailAddress,
                     expands: false,
                     autofocus: false,
                   ),

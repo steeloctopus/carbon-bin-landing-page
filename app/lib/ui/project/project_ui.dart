@@ -2,6 +2,7 @@ import 'package:app/model/model.dart';
 import 'package:app/utils/image_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutube/flutube.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ProjectPage extends StatefulWidget {
@@ -121,9 +122,9 @@ class _ProjectPageState extends State<ProjectPage> {
               //todo add youtube video
               Container(
                 padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                child: YoutubePlayer(
-                  controller: _controller,
-                  showVideoProgressIndicator: true,
+                child: FluTube(
+                  "https://www.youtube.com/watch?v=aNrqaOAt5P4",
+                  autoPlay: false,
                 ),
               ),
               SizedBox(
