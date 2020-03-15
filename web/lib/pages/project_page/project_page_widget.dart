@@ -1,6 +1,8 @@
 import 'package:carbonbins/pages/project_page/project_header.dart';
 import 'package:carbonbins/utils/image_helper.dart';
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
+import 'dart:ui' as ui;
 
 class ProjectPageWidget extends StatefulWidget {
   final bool showImage;
@@ -33,8 +35,19 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
   var footer =
       "Carbon Bins will direct all the funds we generate, that are intended for CO2 removal, to organisations that are, ethical, transparent, certified and/or audited by third parties.";
 
-  var html =
-      "<iframe src='https://www.youtube.com/watch?v=wzZiONbtwiA'></iframe>";
+  var html1 =
+      "<iframe src='https://www.youtube.com/embed/tgbNymZ7vqY'> </iframe>";
+
+  void getH() {
+    //var div = html.Element.div();
+    //div.setInnerHtml(html1);
+  }
+
+  @override
+  void initState() {
+    getH();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +117,7 @@ class _ProjectPageWidgetState extends State<ProjectPageWidget> {
           SizedBox(
             height: widget.isSmall ? 10 : 50,
           ),
+          //todo youtube video
           Container(child: SizedBox()),
           SizedBox(
             height: 50,

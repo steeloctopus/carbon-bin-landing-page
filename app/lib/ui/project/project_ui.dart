@@ -2,8 +2,7 @@ import 'package:app/model/model.dart';
 import 'package:app/utils/image_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutube/flutube.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
 class ProjectPage extends StatefulWidget {
   final UserModel _userModel;
@@ -15,13 +14,8 @@ class ProjectPage extends StatefulWidget {
 }
 
 class _ProjectPageState extends State<ProjectPage> {
-  YoutubePlayerController _controller = YoutubePlayerController(
-    initialVideoId: 'x1SgmFa0r04',
-    flags: YoutubePlayerFlags(
-      autoPlay: false,
-      mute: true,
-    ),
-  );
+  String khtml =
+      "<iframe src='https://www.youtube.com/embed/jNQXAC9IVRw'></iframe>";
 
   @override
   Widget build(BuildContext context) {
@@ -121,10 +115,13 @@ class _ProjectPageState extends State<ProjectPage> {
               ),
               //todo add youtube video
               Container(
+                width: MediaQuery.of(context).size.width,
+                height: 300.0,
                 padding: EdgeInsets.only(left: 20.0, right: 20.0),
-                child: FluTube(
-                  "https://www.youtube.com/watch?v=aNrqaOAt5P4",
-                  autoPlay: false,
+                //"https://www.youtube.com/watch?v=aNrqaOAt5P4",
+                child: HtmlWidget(
+                  khtml,
+                  webView: true,
                 ),
               ),
               SizedBox(

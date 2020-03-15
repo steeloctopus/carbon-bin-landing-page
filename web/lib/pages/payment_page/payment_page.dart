@@ -1,8 +1,10 @@
 import 'package:carbonbins/model/model.dart';
 import 'package:carbonbins/pages/navigation.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:square_in_app_payments/in_app_payments.dart';
 import 'package:square_in_app_payments/models.dart';
+
+import 'dart:js' as js;
+import 'dart:js_util' as util;
 
 class PaymentPage extends StatefulWidget {
   final UserModel userModel;
@@ -14,16 +16,6 @@ class PaymentPage extends StatefulWidget {
 }
 
 class _PaymentPageState extends State<PaymentPage> {
-  void pay() {
-    print("Found it");
-
-    InAppPayments.setSquareApplicationId(
-        "sandbox-sq0idb-Sg71LIPcalhW661Mt_mvyw");
-
-    InAppPayments.startCardEntryFlow(
-        onCardNonceRequestSuccess: success, onCardEntryCancel: cancel);
-  }
-
   void cancel() {
     print("Sorry");
   }
