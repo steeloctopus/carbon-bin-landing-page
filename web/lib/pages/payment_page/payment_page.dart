@@ -20,6 +20,7 @@ class _PaymentPageState extends State<PaymentPage> {
         <div id="dropin-container"></div>
     <button id="submit-button">Submit payment</button>""";
 
+    // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory(
         'dropin-container',
         (int viewId) => DivElement()
