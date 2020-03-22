@@ -1,3 +1,6 @@
+@JS()
+library test;
+
 import 'dart:html';
 
 import 'package:carbonbins/model/model.dart';
@@ -5,6 +8,14 @@ import 'package:carbonbins/pages/navigation.gr.dart';
 import 'package:carbonbins/utils/image_helper.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
+
+import 'package:js/js.dart';
+
+@JS()
+external void initBraintree(auth);
+
+@JS()
+external String payment(auth);
 
 class PaymentPage extends StatefulWidget {
   final UserModel userModel;
@@ -16,6 +27,10 @@ class PaymentPage extends StatefulWidget {
 }
 
 class _PaymentPageState extends State<PaymentPage> {
+  //auth sandbox_nd8g377g_mwpffq4vznpywc5q
+
+  String auth = "sandbox_nd8g377g_mwpffq4vznpywc5q";
+
   void getButton() {
     var htmlL = """<div id="checkout-message"></div>
         <div id="dropin-container"></div>
@@ -33,9 +48,16 @@ class _PaymentPageState extends State<PaymentPage> {
     ));
   }
 
+  void setupDropin() async {
+    var status = payment(auth);
+    print(status);
+  }
+
   @override
   void initState() {
     getButton();
+    initBraintree(auth);
+    setupDropin();
     super.initState();
   }
 
@@ -54,8 +76,11 @@ class _PaymentPageState extends State<PaymentPage> {
         ),
         child: Column(
           children: <Widget>[
+            SizedBox(
+              height: 100,
+            ),
             Container(
-              width: 300.0,
+              width: 500.0,
               height: 300.0,
               child: HtmlElementView(
                 viewType: "dropin-container",
@@ -74,7 +99,7 @@ class _PaymentPageState extends State<PaymentPage> {
     );
   }
 
-  bool isSmall(BuildContext context){
+  bool isSmall(BuildContext context) {
     return MediaQuery.of(context).size.width > 800;
   }
 
