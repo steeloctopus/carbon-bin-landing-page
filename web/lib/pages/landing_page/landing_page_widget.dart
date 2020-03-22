@@ -87,11 +87,12 @@ class _LargeScreenPageState extends State<LandingPageWidget> {
                             ),
                             color: Colors.white,
                             borderRadius: BorderRadius.all(Radius.circular(5))),
-                        child: TextField(
+                        child: TextFormField(
                           controller: firstNameController,
                           decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Fisrt Name',
+                              errorStyle: TextStyle(fontSize: 14.0, color: Colors.red),
                               errorText: snapshot.data),
                           expands: false,
                           autofocus: false,

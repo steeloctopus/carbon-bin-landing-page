@@ -20,7 +20,7 @@ class LandingPageViewModel {
 
   void click(String firstName, String lastName, String email, String amount) {
     if (firstName.length < 3) {
-      firstNameStream.add("h");
+      firstNameStream.add("Please input valid first name");
       return;
     } else {
       firstNameStream.add(null);

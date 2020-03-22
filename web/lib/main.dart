@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-//      initialRoute: MyRoute.landingPage,
-//      navigatorKey: MyRoute.navigator.key,
-//      onGenerateRoute: MyRoute.onGenerateRoute,
-      home: ProjectPage("Shudipto"),
+      initialRoute: MyRoute.landingPage,
+      navigatorKey: MyRoute.navigator.key,
+      onGenerateRoute: MyRoute.onGenerateRoute,
+      //home: ProjectPage("Shudipto"),
       debugShowCheckedModeBanner: false,
     );
   }
