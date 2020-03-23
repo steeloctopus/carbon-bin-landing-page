@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Carbonbins</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/project.css' %}">
+</head>
+
+<body style="background-color: #296d2d;">
+    <section id='top'>
+        <div id='header'>
+        <div><img src="{% static 'assets/img/logo.png' %}"></div>
+        <div id='heading'>
+            <h2>Thank you,<br>{{ name }}</h2>
+        </div>
+        <div id='heading2'>
+            <h2>How we <br>remove CO2<br></h2>
+            
+            <div align='center' style="max-width: 500px">
+            <img src="{% static 'assets/img/smile.png' %}"></div>
+        
+        </div>
+        </div>
+        <div style="max-width: 500px;">
+            <p id='des1'>Yarra Yarra Biodiversity Corridor Project</p>
+        </div>
+        <div style="max-width: 500px; margin-top: 30px">
+            <p id='des'>At present, funds intended for CO2 removal are being forwarded to the Yarra Yarra Biodiversity Corridor project that is being administered by Perth based organisation Carbon Neutral. <br><br>This organisation plants endemic drought resistant
+                trees - natures carbon removal machines.<br>The project has been certified by The Gold Standard (TGS), an agency established by the World Wildlife Fund, it ensures that projects like theYarra Yarra Biodiversity Corridor do indeed remove
+                CO2, that their methodologies are sound and that the projects “...deliver meaningful sustainable development benefits beyond emission reductions”. <br><br>According to TGS, to date “... 10,000 hectares has been revegetated capturing 1.257
+                million tonnes of carbon”.</p>
+        </div>
+    </section>
+    <section id='bottom'>
+        <div style="max-width: 500px;">
+            <div class="video-container"><iframe width="500" height="480" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/axdQRdyDdmg"></iframe></div>
+        </div>
+        
+        <div style="max-width: 500px; margin-top: 30px">
+            <p id="des">Carbon Bins will direct all the funds we generate, that are intended for CO2 removal, to organisations that are,
+ethical, transparent, certified and/or audited by third parties.</p>
+        </div>
+        
+        <div id='clogo' align='right'><img src="{% static 'assets/img/clogo.png' %}"></div>
+    </section>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Carbonbins</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/index.css' %}">
+</head>
+
+<body style="background-color: #296d2d;">
+    <div id='main'>
+        <section id='top'>
+            <div id='header'>
+            <div><img src="{% static 'assets/img/logo.png' %}"></div>
+            <div id='heading'>
+                <h2 style=>Bin your<br>carbon.<br>Better our<br>planet <img src="{% static 'assets/img/smile.png' %}"/></h2>
+            </div>
+            <div>
+                <p id='des'>You throw out your garbage. You recycle your plastic. Carbon Bin makes it easy to instantly get rid&nbsp;of your carbon emissions.</p>
+            </div>
+                </div>
+        </section>
+        <section id="bottom">
+            <div style="max-width: 400px;">
+                <form action="/" method="post">
+                    {% csrf_token %}
+                    <input class="border rounded form-control d-inline" type="text" name="first_name" required="" placeholder="First Name" autocomplete="name" maxlength="10" minlength="3">
+                    
+                    <input class="form-control" type="text" name="last_name" required="" placeholder="Surname" maxlength="10" autocomplete="nickname" minlength="3" style="margin-top: 20px;">
+                    
+                    <input class="form-control" type="email" name="email" required="" placeholder="Enter email address" autocomplete="email" inputmode="email" style="margin-top: 20px;">
+                    
+                    <input class="form-control" type="number" name="amount" required="" placeholder="Select Amount" min="1" step="1" style="margin-top: 20px;">
+                    <button class="btn btn-primary" type="submit" style="margin-top: 20px;min-width: 75%;margin-left: 25%;background-color: #cfa6cd;color: #296d2d;font-size: 20px;">Remove CO2</button>
+                </form>
+            </div>
+            <div id="clogo" align='right'><img src="{% static 'assets/img/clogo.png' %}"></div>
+        </section>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

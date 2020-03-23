@@ -1,0 +1,123 @@
+@font-face {
+    src: url(../font/BookmaniaBold.ttf);
+    font-family: 'Bookmania';
+}
+
+@font-face {
+    src: url(../font/GothamMedium.ttf);
+    font-family: 'Gotham';
+}
+
+
+#header {
+    background-image: url(../img/earth.png);
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-position: right;
+}
+
+@media only screen and (max-width: 1000px) {
+    #header {
+        background-image: url(../img/start.png);
+        background-repeat: no-repeat;
+        background-attachment: local;
+        background-position: right;
+    }
+}
+
+#top {
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    top {
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+#main {
+    background-color: #296d2d;
+}
+
+#heading {
+    margin-top: 80px;
+    font-size: 80px;
+}
+
+#heading h2 {
+    font-size: 80px;
+    color: #cfa6cd;
+    font-family: 'Bookmania', sans-serif;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    #heading {
+        margin-top: 50px;
+        font-size: 50px;
+    }
+
+    #heading h2 {
+        font-size: 50px;
+        color: #cfa6cd;
+        font-family: 'Bookmania', sans-serif;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #heading {
+        margin-top: 50px;
+    }
+
+    #heading h2 {
+        font-size: 40px;
+        color: #cfa6cd;
+        font-family: 'Bookmania', sans-serif;
+        font-weight: bold;
+    }
+}
+
+
+#bottom {
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+    #bottom {
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 70px;
+    }
+}
+
+#clogo {
+    margin-top: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    #clogo {
+        margin-top: 30px;
+    }
+
+    #clogo img {
+        height: 50px;
+    }
+}
+
+#des {
+    max-width: 500px;
+    margin-top: 20px;
+    color: rgb(246, 247, 248);
+    font-size: 20px;
+    font-family: 'Gotham', sans-serif;
+    font-weight: bold;
+}
