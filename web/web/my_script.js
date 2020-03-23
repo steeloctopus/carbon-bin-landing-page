@@ -1,7 +1,10 @@
 
+
+
 function initBraintree(auth){
-    var dropin = require('braintree-web-drop-in', );
-    dropin.create({
+    //error Module name "braintree-web-drop-in" has not been loaded yet for context: _. Use require([])
+    //here
+    braintree.dropin.create({
     authorization: auth,
       container: '#dropin-container',
       paypal: {
@@ -11,17 +14,20 @@ function initBraintree(auth){
 }
 
 function payment(auth){
-    var button = document.querySelector('#submit-button');
-    var braintree = require('braintree-web-drop-in');
+    var button = document.querySelector('submit-button');
+    console.log(auth);
+    console.log(button);
     braintree.dropin.create({
       authorization: auth,
-      container: '#dropin-container'
+      container: 'dropin-container'
     }, function (createErr, instance) {
-      button.addEventListener('click', function () {
-        instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
-          // Submit payload.nonce to your server
-          return payload.nonce
-        });
-      });
+        console.log(createErr);
+        console.log(instance);
+         button.addEventListener('click', function () {
+            instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
+              // Submit payload.nonce to your server
+              return payload.nonce
+            });
+         });
     });
 }

@@ -1,0 +1,1 @@
+options.selector or options.container must reference a valid DOM node.

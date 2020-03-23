@@ -1,7 +1,8 @@
 @JS()
-library test;
+library my_script;
 
 import 'dart:html';
+import 'dart:js_util';
 
 import 'package:carbonbins/model/model.dart';
 import 'package:carbonbins/pages/navigation.gr.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
 import 'package:js/js.dart';
+import 'package:js/js.dart' as js;
 
 @JS()
 external void initBraintree(auth);
@@ -27,8 +29,6 @@ class PaymentPage extends StatefulWidget {
 }
 
 class _PaymentPageState extends State<PaymentPage> {
-  //auth sandbox_nd8g377g_mwpffq4vznpywc5q
-
   String auth = "sandbox_nd8g377g_mwpffq4vznpywc5q";
 
   void getButton() {
@@ -38,7 +38,7 @@ class _PaymentPageState extends State<PaymentPage> {
 
     // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory(
-        'dropin-container',
+        'payment-container',
         (int viewId) => DivElement()
           ..appendHtml(htmlL)
           ..style.border = 'none');
@@ -48,16 +48,24 @@ class _PaymentPageState extends State<PaymentPage> {
     ));
   }
 
-  void setupDropin() async {
+  void setupDropin() {
+    print(auth);
     var status = payment(auth);
-    print(status);
+    print("Status: $status");
+  }
+
+  void test() {
+    js.allowInteropCaptureThis(() {
+      payment(auth);
+    });
   }
 
   @override
   void initState() {
     getButton();
-    initBraintree(auth);
+    //initBraintree(auth);
     setupDropin();
+    test();
     super.initState();
   }
 
@@ -83,13 +91,15 @@ class _PaymentPageState extends State<PaymentPage> {
               width: 500.0,
               height: 300.0,
               child: HtmlElementView(
-                viewType: "dropin-container",
+                viewType: "payment-container",
               ),
             ),
             MaterialButton(
               onPressed: () {
-                goToNextPage();
+                //goToNextPage();
                 //pay();
+                print("I called the drop in");
+                setupDropin();
               },
               child: Text("Click me"),
             ),
