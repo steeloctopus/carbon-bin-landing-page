@@ -13,23 +13,35 @@ def home(request):
         print("Email:", data['email'])
         print(request.POST)
 
+        # save on sessions
+        request.session["first_name"] = data['first_name']
+        request.session["last_name"] = data['last_name']
+        request.session["amount"] = data['amount']
+        request.session["email"] = data['email']
+
         return HttpResponseRedirect('/payment/', )
     else:
         return render(request, 'index.html')
 
 
 def payment(request):
-    print(request.method)
-    print("I called")
-    print(request)
-
+    print("First Name: ", request.session.get('first_name'))
     if request.method == 'POST':
         data = request.POST
         nonce = data['payment_method_nonce']
-
-        result = process_payment(nonce=nonce, amount=10)
+        amount = request.session.get('amount')
+        result = process_payment(nonce=nonce, amount=amount)
 
         if result.is_success:
+            print("*" * 10)
+            print("\n\n")
+            firstName = request.session.get('first_name')
+            lastName = request.session.get('last_name')
+            email = request.session.get('email')
+            print("User details: ", firstName, lastName, email, amount)
+            print("transaction details: ", result.transaction)
+            print("\n\n")
+            print("*" * 10)
             return HttpResponseRedirect('/project/')
         else:
             return render(request, 'payment.html', {'client_token': get_token()})
@@ -38,4 +50,5 @@ def payment(request):
 
 
 def project(request):
-    return render(request, 'project.html', {'name': "Shudipto"})
+    firstName = request.session.get('first_name')
+    return render(request, 'project.html', {'name': firstName})

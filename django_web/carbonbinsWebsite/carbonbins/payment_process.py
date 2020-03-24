@@ -22,7 +22,4 @@ def process_payment(nonce, amount):
             "submit_for_settlement": True
         }
     })
-
-    print(result.transaction)
-
     return result

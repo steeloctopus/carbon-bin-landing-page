@@ -12,47 +12,47 @@
 </head>
 
 <body style="background-color: #296d2d;">
-    <section id='top'>
-        <div>
-            <img src="{% static 'assets/img/logo.png' %}"></div>
-        <div style="margin-top: 80px;font-size: 80px;"></div>
-        <div style="max-width: 500px;"></div>
+<section id='top'>
+    <div>
+        <img src="{% static 'assets/img/logo.png' %}"></div>
+    <div style="margin-top: 80px;font-size: 80px;"></div>
+    <div style="max-width: 500px;"></div>
 
-        <div align='center' >
-        <div style="max-width: 500px; margin-left: 20px; margin-right: 20px;">
+    <div align='left'>
+        <div style="max-width: 500px;">
             <div>
-                <h2 style="color: aqua">Complete payment</h2>
+                <h2 id='des'>Complete payment</h2>
             </div>
 
             <div>
                 <form id="payment-form" method="post" action="/payment/">
-            {% csrf_token %}
-            <section>
-                <!--
-                <label for="amount">
-                    <span class="input-label">Amount</span>
-                    <div class="input-wrapper amount-wrapper">
-                        <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
-                    </div>
-                </label>
-                -->
-                <div class="bt-drop-in-wrapper">
-                    <div id="bt-dropin"></div>
-                </div>
-            </section>
+                    {% csrf_token %}
+                    <section>
+                        <!--
+                        <label for="amount">
+                            <span class="input-label">Amount</span>
+                            <div class="input-wrapper amount-wrapper">
+                                <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
+                            </div>
+                        </label>
+                        -->
+                        <div class="bt-drop-in-wrapper">
+                            <div id="bt-dropin"></div>
+                        </div>
+                    </section>
 
-            <input type="hidden" id="nonce" name="payment_method_nonce"/>
+                    <input type="hidden" id="nonce" name="payment_method_nonce"/>
                     <br>
-            <button class="btn btn-primary" type="submit" id="submit-button"><span>Make Payment</span></button>
-        </form>
+                    <button class="btn btn-primary" type="submit" id="submit-button" style="margin-top: 20px;min-width: 75%;margin-left: 25%;background-color: #cfa6cd;color: #296d2d;font-size: 20px;"><span>Complete Payment</span></button>
+                </form>
             </div>
         </div>
-            </div>
-    </section>
-    <div id="clogo" align='right'><img src="{% static 'assets/img/clogo.png' %}"></div>
-    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="https://js.braintreegateway.com/web/dropin/1.22.1/js/dropin.min.js"></script>
+    </div>
+</section>
+<div id="clogo" align='right'><img src="{% static 'assets/img/clogo.png' %}"></div>
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="https://js.braintreegateway.com/web/dropin/1.22.1/js/dropin.min.js"></script>
 <script>
   var form = document.querySelector('#payment-form');
   var client_token = '{{ client_token }}';
@@ -79,6 +79,7 @@
       });
     });
   });
+
 
 
 
