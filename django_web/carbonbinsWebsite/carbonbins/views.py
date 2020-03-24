@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .payment_process import get_token, process_payment
+from .models import UserModel
 
 
 # Create your views here.
@@ -42,6 +43,15 @@ def payment(request):
             print("transaction details: ", result.transaction)
             print("\n\n")
             print("*" * 10)
+
+            user = UserModel()
+            user.firstName = firstName
+            user.lastName = lastName
+            user.amount = amount
+            user.email = email
+            user.transiction = str(result.transaction)[:400]
+            user.save()
+
             return HttpResponseRedirect('/project/')
         else:
             return render(request, 'payment.html', {'client_token': get_token()})
