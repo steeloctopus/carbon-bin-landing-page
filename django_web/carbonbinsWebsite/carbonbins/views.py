@@ -49,7 +49,7 @@ def payment(request):
             user.lastName = lastName
             user.amount = amount
             user.email = email
-            user.transiction = str(result.transaction)[:400]
+            user.transiction = str(result.transaction)[:900]
             user.save()
 
             return HttpResponseRedirect('/project/')
