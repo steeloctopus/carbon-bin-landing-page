@@ -13,37 +13,91 @@
 </head>
 
 <body style="background-color: #296d2d;">
-    <div id='main'>
-        <section id='top'>
-            <div id='header'>
+<div id='main'>
+    <section id='top'>
+        <div id='header'>
             <div><img src="{% static 'assets/img/logo.png' %}"></div>
             <div id='heading'>
-                <h2 style=>Bin your<br>carbon.<br>Better our<br>planet <img src="{% static 'assets/img/smile.png' %}"/></h2>
+                <h2 style=>Bin your<br>carbon.<br>Better our<br>planet <img src="{% static 'assets/img/smile.png' %}"/>
+                </h2>
             </div>
             <div>
-                <p id='des'>You throw out your garbage. You recycle your plastic. Carbon Bin makes it easy to instantly get rid&nbsp;of your carbon emissions.</p>
+                <p id='des'>You throw out your garbage. You recycle your plastic. Carbon Bin makes it easy to instantly
+                    get rid&nbsp;of your carbon emissions.</p>
             </div>
-                </div>
-        </section>
-        <section id="bottom">
-            <div style="max-width: 400px;">
-                <form action="/" method="post">
-                    {% csrf_token %}
-                    <input class="border rounded form-control d-inline" type="text" name="first_name" required="" placeholder="First Name" autocomplete="name" maxlength="10" minlength="3">
-                    
-                    <input class="form-control" type="text" name="last_name" required="" placeholder="Surname" maxlength="10" autocomplete="nickname" minlength="3" style="margin-top: 20px;">
-                    
-                    <input class="form-control" type="email" name="email" required="" placeholder="Enter email address" autocomplete="email" inputmode="email" style="margin-top: 20px;">
-                    
-                    <input class="form-control" type="number" name="amount" required="" placeholder="Select Amount" min="1" step="1" style="margin-top: 20px;">
-                    <button class="btn btn-primary" type="submit" style="margin-top: 20px;min-width: 75%;margin-left: 25%;background-color: #cfa6cd;color: #296d2d;font-size: 20px;">Remove CO2</button>
-                </form>
-            </div>
-            <div id="clogo" align='right'><img src="{% static 'assets/img/clogo.png' %}"></div>
-        </section>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        </div>
+    </section>
+    <section id="bottom">
+        <div style="max-width: 400px;">
+            <form action="/" method="post" id="myform" onsubmit="return validateForm()" >
+                {% csrf_token %}
+                <input class="border rounded form-control d-inline" type="text" name="first_name" required=""
+                       placeholder="First Name" autocomplete="name" maxlength="10" minlength="3">
+
+                <input class="form-control" type="text" name="last_name" required="" placeholder="Surname"
+                       maxlength="10" autocomplete="nickname" minlength="3" style="margin-top: 20px;">
+
+                <input class="form-control" type="email" name="email" required="" placeholder="Enter email address"
+                       autocomplete="email" inputmode="email" style="margin-top: 20px;">
+
+                <button class="btn" type="button" style="margin-top: 20px; margin-right: 30px; background-color: #FFFFFF;"
+                        onclick="myFunc(2)">$2
+                </button>
+                <button class="btn" type="button" style="margin-top: 20px; margin-right: 25px; background-color: #FFFFFF;"
+                        onclick="myFunc(10)">$10
+                </button>
+                <button class="btn" type="button" style="margin-top: 20px; margin-right: 25px; background-color: #FFFFFF;"
+                        onclick="myFunc(15)">$15
+                </button>
+                <button class="btn" type="button" style="margin-top: 20px; margin-right: 25px; background-color: #FFFFFF;"
+                        onclick="myFunc(25)">$25
+                </button>
+                <button class="btn" type="button" style="margin-top: 20px; margin-right: 22px; background-color: #FFFFFF;"
+                        onclick="myFunc(50)">$50
+                </button>
+                <input type="hidden" id="pay" name="amount" required/>
+
+                <!--                <label for="payment"><h4><span style="color: #FFFFFF">Choose payment amount:</span></h4></label>-->
+                <!--                <select name="payment" id="payment" style="margin-top: 20px; margin-left: 50px;">-->
+                <!--                    <option value="2">$2</option>-->
+                <!--                    <option value="10">$10</option>-->
+                <!--                    <option value="15">$15</option>-->
+                <!--                    <option value="25">$25</option>-->
+                <!--                    <option value="50">$50</option>-->
+                <!--                </select>-->
+
+                <!--                $2, $10, $15, $25, $50-->
+
+                <!--                <input class="form-control" type="number" name="amount" required="" placeholder="Select Amount" min="1"-->
+                <!--                       step="1" style="margin-top: 20px;">-->
+
+                <button class="btn btn-primary" type="submit"
+                        style="margin-top: 20px;min-width: 75%;margin-left: 25%;background-color: #cfa6cd;color: #296d2d;font-size: 20px;">
+                    Remove CO2
+                </button>
+            </form>
+        </div>
+        <div id="clogo" align='right'><img src="{% static 'assets/img/clogo.png' %}"></div>
+    </section>
+</div>
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script>
+function myFunc(amount) {
+  document.querySelector('#pay').value = amount;
+}
+</script>
+
+<script>
+function validateForm() {
+  var x = document.forms["myform"]["pay"].value;
+  if (x == "") {
+    alert("Please select payment amount");
+    return false;
+  }
+}
+</script>
+
 </body>
 
 </html>

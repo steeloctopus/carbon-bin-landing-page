@@ -11,7 +11,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-    #top {
+    top {
         margin-top: 30px;
         margin-left: 20px;
         margin-right: 20px;
@@ -21,7 +21,7 @@
 
 
 @media only screen and (max-width: 1000px) {
-    #top {
+    top {
         margin-top: 50px;
         margin-left: 50px;
         margin-right: 50px;
@@ -33,25 +33,13 @@
     }
 }
 
-#des {
-
-    max-width: 500px;
-    margin-top: 20px;
-    color: rgb(246, 247, 248);
-    font-size: 20px;
-    font-family: 'Gotham', sans-serif;
-    font-weight: bold;
-}
-
 #clogo {
     margin-top: 5px;
-    margin-right:20px;
 }
 
 @media only screen and (max-width: 600px) {
     #clogo {
         margin-top: 30px;
-        margin-right:20px;
     }
 
     #clogo img {
